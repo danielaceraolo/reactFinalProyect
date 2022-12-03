@@ -1,9 +1,9 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import Spinner from "react-bootstrap/Spinner";
 
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { collection, getDocs, getFirestore, doc } from "firebase/firestore";
+import Spinner from "react-bootstrap/Spinner";
 
 import "./ItemListContainer.css";
 
