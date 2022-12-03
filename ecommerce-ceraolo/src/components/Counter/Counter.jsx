@@ -1,34 +1,49 @@
-import { useState } from 'react'
+import { useState } from "react";
+import { Button } from "react-bootstrap";
 
-import './Counter.css'
+import InterChange from './../InterChange/InterChange';
 
 const Counter = ({ initial = 1, stock = 100, onAdd }) => {
-    const [Quantity, setQuantity] = useState(initial)
-
+    const [quantity, setQuantity] = useState(initial);
+    const [bool, setBool] = useState(true);
     const add = () => {
-        if (Quantity < stock) {
-            setQuantity(Quantity + 1)
+        if (quantity < stock) {
+            setQuantity(quantity + 1);
         }
-    }
+    };
 
     const subtract = () => {
-        if (Quantity > 1) {
-            setQuantity(Quantity - 1)
+        if (quantity > 1) {
+            setQuantity(quantity - 1);
         }
-    }
+    };
 
-    const addQuantity = () => {
-        onAdd(Quantity)
-    }
+    const addquantity = () => {
+        onAdd(quantity);
+        setBool(false);
+    };
+
     return (
-        <div className='border border-2 border-primary container w-50'>
-            <button className='btn btn-outline-primary' onClick={add}>-</button>
-            <label>{Quantity}</label>
-            <button className="btn btn-outline-primary" onClick={subtract}>+</button><br />
-            <button className='btn btn-outline-primary' onClick={addQuantity}>Agregar al carrito</button>
-
+        <div>
+            {bool === true ? (
+                <div>
+                    <Button className="btn btn-dark btn-outline-light border-dark m-1" onClick={subtract}>
+                        -
+                    </Button>
+                    <label>{quantity}</label>
+                    <Button className="btn btn-dark btn-outline-light border-dark m-1" onClick={add}>
+                        +
+                    </Button>
+                    <br />
+                    <Button className="btn btn-dark btn-outline-light border-dark m-1" onClick={addquantity}>
+                        Agregar al carrito
+                    </Button>
+                </div>
+            ) : (
+                <InterChange />
+            )}
         </div>
-    )
-}
+    );
+};
 
-export default Counter
+export default Counter;

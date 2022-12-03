@@ -1,16 +1,18 @@
-import Counter from './../Counter/Counter';
-
 import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
+
 import { useCartContext } from "../../context/CartContext";
+import Counter from './../Counter/Counter';
+
 
 const ItemDetail = ({ item }) => {
-    const { addToCart, calcTotal, calcItemQuantity } = useCartContext();
+    const { addToCart, isTotal, quantItem } =
+        useCartContext();
 
     const onAdd = (quantity) => {
         addToCart({ ...item, quantity });
-        calcTotal(item, quantity);
-        calcItemQuantity(quantity);
+        isTotal(item, quantity);
+        quantItem(quantity);
     };
 
     return (
@@ -47,3 +49,4 @@ const ItemDetail = ({ item }) => {
 };
 
 export default ItemDetail;
+

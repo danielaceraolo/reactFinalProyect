@@ -22,27 +22,27 @@ const CartContextProvider = ({ children }) => {
     };
 
     const removeFromCart = (id) => {
-        setCartList(cartList.filter((el) => el.id !== id));
+        setCartList(cartList.filter((elem) => elem.id !== id));
     };
 
     const calcTotal = () => {
         return cartList.reduce(
-            (sumPrecio, product) => (sumPrecio += product.quantity * product.price),
+            (addPrice, product) => (addPrice += product.quantity * product.price),
             0
         );
     };
 
-    const calcItemQuantity = () => {
+    const itemQuantity = () => {
         return cartList.reduce((count, product) => (count += product.quantity), 0);
+    };
+    
+    const showOrder = (id) => {
+        setOrder(true);
+        setOrderId(id);
     };
 
     const deleteCart = () => {
         setCartList([]);
-    };
-
-    const showOrder = (id) => {
-        setOrder(true);
-        setOrderId(id);
     };
 
     return (
@@ -53,7 +53,7 @@ const CartContextProvider = ({ children }) => {
                 orderId,
                 isInCart,
                 calcTotal,
-                calcItemQuantity,
+                itemQuantity,
                 addToCart,
                 removeFromCart,
                 deleteCart,

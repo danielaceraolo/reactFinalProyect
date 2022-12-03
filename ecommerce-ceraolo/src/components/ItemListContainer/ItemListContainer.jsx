@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { collection, getDocs, getFirestore, doc } from "firebase/firestore";
 import Spinner from "react-bootstrap/Spinner";
 
@@ -9,10 +9,8 @@ import "./ItemListContainer.css";
 
 const ItemListContainer = (obj) => {
     const [products, setProducts] = useState([]);
-    const [product, setProduct] = useState({});
 
     const [loading, setLoading] = useState(true);
-    const { categoryId } = useParams();
 
     useEffect(() => {
         const db = getFirestore();
@@ -42,7 +40,7 @@ const ItemListContainer = (obj) => {
                             <div className="card justify-content-center text-center text-dark">
                                 <img
                                     className="card-img-top justify-content-center"
-                                    src={obj.foto}
+                                    src={obj.img}
                                     alt="foto-product"
                                 />
 

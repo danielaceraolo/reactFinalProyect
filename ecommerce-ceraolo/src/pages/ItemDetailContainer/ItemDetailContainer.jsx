@@ -1,10 +1,10 @@
-import ItemDetail from "../../components/ItemDetail/ItemDetail";
-
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Spinner } from "react-bootstrap";
-
 import { doc, getDoc, getFirestore } from "firebase/firestore";
+
+import { Spinner } from "react-bootstrap";
+import ItemDetail from './../../components/ItemDetail/ItemDetail';
+
 
 const ItemDetailContainer = () => {
     const [item, setItem] = useState([]);
@@ -33,7 +33,7 @@ const ItemDetailContainer = () => {
             <Spinner />
         </div>
     ) : (
-        <div className="text-center ">
+        <div className="m-5">
             <ItemDetail item={item} />
         </div>
     );

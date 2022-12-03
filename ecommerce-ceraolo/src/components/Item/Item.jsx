@@ -1,7 +1,7 @@
 import { memo } from "react"
 import { Link } from "react-router-dom"
 
-const Item = memo(({ item }) => {
+const Item = memo(({item}) => {
 
     return (
         <div className='card w-50 mt-2'>
@@ -11,7 +11,7 @@ const Item = memo(({ item }) => {
                 </div>
                 <div className='card-body'>
                     <center>
-                        <img src={item.foto} className="w-50" />
+                        <img src={item.img} className="w-50" />
                     </center>
                 </div>
                 <div className='card-footer'>
