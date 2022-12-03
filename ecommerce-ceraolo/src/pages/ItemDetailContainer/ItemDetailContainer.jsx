@@ -1,10 +1,8 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
 import { doc, getDoc, getFirestore } from "firebase/firestore";
-
-import { Spinner } from "react-bootstrap";
-import ItemDetail from './../../components/ItemDetail/ItemDetail';
-
+import { Spinner } from 'react-bootstrap';
+import ItemDetail from "../../components/ItemDetail/ItemDetail"
 
 const ItemDetailContainer = () => {
     const [item, setItem] = useState([]);
@@ -13,7 +11,7 @@ const ItemDetailContainer = () => {
 
     useEffect(() => {
         const dbFirestore = getFirestore();
-        const queryCollection = doc(dbFirestore, "items", productId);
+        const queryCollection = doc(dbFirestore, "Items", productId);
         if (productId) {
             getDoc(queryCollection)
                 .then((doc) => setItem({ id: doc.id, ...doc.data() }))
@@ -28,6 +26,7 @@ const ItemDetailContainer = () => {
         [productId];
     });
 
+    console.log(productId)
     return loading ? (
         <div className="d-flex justify-content-center ">
             <Spinner />
@@ -37,6 +36,6 @@ const ItemDetailContainer = () => {
             <ItemDetail item={item} />
         </div>
     );
-};
+}
 
-export default ItemDetailContainer;
+export default ItemDetailContainer

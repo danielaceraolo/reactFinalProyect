@@ -1,52 +1,46 @@
-import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 import { useCartContext } from "../../context/CartContext";
 import Counter from './../Counter/Counter';
 
 
-const ItemDetail = ({ item }) => {
-    const { addToCart, isTotal, quantItem } =
-        useCartContext();
+const ItemDetail = ({ product }) => {
+    const [isCounter, setIsCounter] = useState(true)
+    const { cartList, agregarAlCarrito } = useCartContext()
 
-    const onAdd = (quantity) => {
-        addToCart({ ...item, quantity });
-        isTotal(item, quantity);
-        quantItem(quantity);
-    };
+    const onAdd = (cantidad) => {
+        console.log(cantidad)
+        agregarAlCarrito({ ...product, cantidad })
+        setIsCounter(false)
+    }
+    console.log(cartList)
 
     return (
-        <div className="px-5 mx-5 p-3 m-3 d-flex flex-row justify-content-center align-items-center">
-            <div className="ps-5 ms-5">
-                <Card className="card" style={{ width: "22rem" }}>
-                    <Card.Img variant="top" src={`${item.img}`} />
-                    <Card.Body>
-                        <Card.Title>{item.name}</Card.Title>
-                        <Card.Text>$ {item.price}</Card.Text>
-                    </Card.Body>
-                </Card>
-            </div>
-            <div className="p-5 m-5">
-                <div className="d-flex justify-content-center flex-row lead">
-                    <Link className="px-3" to="/">
-                        Inicio
-                    </Link>
-                    /
-                    <Link className="px-3" to={`/category/${item.category}`}>
-                        {item.category}
-                    </Link>
-                    /<p className="px-3"> {item.name}</p>
+        <>
+            <div className="row">
+                <div className="col">
+                    <img src={product.img} className="w-25" />
+                    <p>Categoría: {product.category}</p>
+                    <p>Precio: {product.price}</p>
+                    <p>stock: {product.stock}</p>
                 </div>
-                <h2 className="display-5">{item.name}</h2>
-                <h2 className="display-5">${item.price}</h2>
-                <p className="lead fs-3">{item.detail}</p>
-                <>
-                    <Counter stock={10} initial={1} onAdd={onAdd} />
-                </>
+                <div className="col">
+                    {isCounter ? (
+                        <Counter stock={10} initial={1} onAdd={onAdd} />
+                    ) : (
+                        <div className="container mt-5">
+                            <Link to="/cart" className="btn btn-success">
+                                Ir al Carrito
+                            </Link>
+                            <Link to="/" className="btn btn-success">
+                                Continuar comprando{" "}
+                            </Link>
+                        </div>
+                    )}
+                </div>
             </div>
-        </div>
+        </>
     );
 };
 
 export default ItemDetail;
-
