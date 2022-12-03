@@ -1,4 +1,5 @@
-import { ItemDetail } from "./components/ItemDetail/ItemDetail.jsx";
+
+import ItemDetail from './../../components/ItemDetail/ItemDetail';
 
 const ItemDetailContainer = () => {
     return (

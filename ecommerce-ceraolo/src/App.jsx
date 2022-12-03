@@ -5,10 +5,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import './App.css'
 
-import NameBrand from './components/NameBrand/NameBrand'
 import Menu from "./components/Menu/Menu";
+import NameBrand from './components/NameBrand/NameBrand';
+import CartContextProvider from "./context/CartContext";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
-import ItemDetail from "./components/ItemDetail/ItemDetail";
+import ItemDetailContainer from './pages/ItemDetailContainer/ItemDetailContainer';
+import Cart from "./pages/Cart/Cart";
 
 
 
@@ -17,14 +19,19 @@ import "bootstrap/dist/css/bootstrap.min.css";
 function App() {
   return (
     <BrowserRouter>
-      <Menu />
-      <NameBrand />
-      <Routes>
-        <Route path="/" element={<ItemListContainer />} />
-        <Route path="/category/:categoriaId" element={<ItemListContainer />} />
-        <Route path="/detail/:productId" element={<ItemDetail />} />
-        <Route path="*" element={<Navigate to="/" />} />
-      </Routes>
+      <CartContextProvider>
+        <Menu/>
+        <NameBrand/>
+        <Routes>
+          <Route path='/' element={<ItemListContainer />} />
+          <Route path='/category/:category' element={<ItemListContainer />} />
+          <Route path='/detail/:product' element={
+            <ItemDetailContainer />
+          } />
+          <Route path='/cart' element={<Cart />} />
+          <Route path='*' element={<Navigate to='/' />} />
+        </Routes>
+      </CartContextProvider>
     </BrowserRouter>
   );
 }

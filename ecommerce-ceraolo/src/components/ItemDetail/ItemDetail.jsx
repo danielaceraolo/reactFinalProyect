@@ -15,14 +15,14 @@ const ItemDetail = ({ item }) => {
         setIsCounter(false)
     }
 
+    console.log(item)
 
     return (
         <>
             <div className="row">
                 <div className="col">
-
-                    <img src={item.foto} className="w-25" />
-                    <p>Categoría: {item.categoria}</p>
+                    <img src={item.img} className="w-25" />
+                    <p>Categoría: {item.category}</p>
                     <p>Precio: {item.price}</p>
                     <p>stock: {item.stock}</p>
                 </div>
@@ -35,11 +35,8 @@ const ItemDetail = ({ item }) => {
                             <Link to='/' className="btn btn-success">Continuar compra</Link>
                         </div>
                     }
-
                 </div>
-
             </div>
-
         </>
     )
 }

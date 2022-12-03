@@ -24,7 +24,6 @@ const ItemListContainer = (obj) => {
             )
             .catch((err) => console.log(err))
             .finally(() => setLoading(false))
-            .then((doc) => setProduct({ id: doc.id, ...doc.data() }));
     }, []);
 
     console.log(products);
