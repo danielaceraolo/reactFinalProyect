@@ -1,39 +1,34 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { doc, getDoc, getFirestore } from "firebase/firestore";
-import { Spinner } from 'react-bootstrap';
-import ItemDetail from "../../components/ItemDetail/ItemDetail"
+import { doc, getDoc, getFirestore } from 'firebase/firestore'
+
+import ItemDetail from './../../components/ItemDetail/ItemDetail';
+import Spinner from 'react-bootstrap/Spinner';
+
 
 const ItemDetailContainer = () => {
-    const [item, setItem] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const { productId } = useParams();
+
+    const [product, setProduct] = useState({})
+    const [loading, setLoading] = useState(true)
+    const { productId } = useParams()
 
     useEffect(() => {
-        const dbFirestore = getFirestore();
-        const queryCollection = doc(dbFirestore, "Items", productId);
-        if (productId) {
-            getDoc(queryCollection)
-                .then((doc) => setItem({ id: doc.id, ...doc.data() }))
-                .catch((err) => console.log(err))
-                .finally(() => setLoading(false));
-        } else {
-            getDoc(queryCollection)
-                .then((doc) => setItem({ id: doc.id, ...doc.data() }))
-                .catch((err) => console.log(err))
-                .finally(() => setLoading(false));
-        }
-        [productId];
-    });
+        const dbFirestore = getFirestore()
+        const queryCollection = doc(dbFirestore, 'Items', productId)
+        getDoc(queryCollection)
+            .then((doc) => setProduct({ id: doc.id, ...doc.data() }))
+            .catch(err => console.log(err))
+            .finally(() => setLoading(false))
+    }, [productId])
 
-    console.log(productId)
+
     return loading ? (
         <div className="d-flex justify-content-center ">
             <Spinner />
         </div>
     ) : (
         <div className="m-5">
-            <ItemDetail item={item} />
+            <ItemDetail product={product}/>
         </div>
     );
 }

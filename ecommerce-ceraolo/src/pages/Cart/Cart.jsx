@@ -9,9 +9,9 @@ const Cart = () => {
             <ul>
                 {cartList.map((product) => (
                     <li key={product.id}>
-                        <img src={product.foto} className="w-25" />
-                        Nombre: {product.name} - Precio {product.price} - cantidad:{" "}
-                        {product.cantidad}
+                        <img src={product.img} className="w-25" />
+                        Nombre: {product.name} - Precio {product.price} - Cantidad:{" "}
+                        {product.quantity}
                     </li>
                 ))}
             </ul>

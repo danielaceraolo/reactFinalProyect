@@ -1,46 +1,34 @@
-import { Link } from "react-router-dom";
-
-import { useCartContext } from "../../context/CartContext";
+import { useCartContext } from './../../context/CartContext';
 import Counter from './../Counter/Counter';
+import InterChange from './../InterChange/InterChange';
+
 
 
 const ItemDetail = ({ product }) => {
-    const [isCounter, setIsCounter] = useState(true)
-    const { cartList, agregarAlCarrito } = useCartContext()
+
+    const { cartList, addOnCart } = useCartContext()
 
     const onAdd = (cantidad) => {
-        console.log(cantidad)
-        agregarAlCarrito({ ...product, cantidad })
-        setIsCounter(false)
+        console.log(cantidad);
+        addOnCart({ ...product, cantidad })
     }
-    console.log(cartList)
+
+    console.log(cartList);
 
     return (
-        <>
-            <div className="row">
-                <div className="col">
-                    <img src={product.img} className="w-25" />
-                    <p>Categoría: {product.category}</p>
-                    <p>Precio: {product.price}</p>
-                    <p>stock: {product.stock}</p>
-                </div>
-                <div className="col">
-                    {isCounter ? (
-                        <Counter stock={10} initial={1} onAdd={onAdd} />
-                    ) : (
-                        <div className="container mt-5">
-                            <Link to="/cart" className="btn btn-success">
-                                Ir al Carrito
-                            </Link>
-                            <Link to="/" className="btn btn-success">
-                                Continuar comprando{" "}
-                            </Link>
-                        </div>
-                    )}
-                </div>
+        <div className="row">
+            <div className="col">
+                <img src={product.img} className='w-50' />
+                <p>Categoria: {product.category}</p>
+                <p>Precio: {product.price}</p>
+                <p>Stock: {product.stock}</p>
             </div>
-        </>
-    );
-};
+            <div className="col">
+                <Counter stock={10} initial={1} onAdd={onAdd} />
+            </div>
+            <InterChange />
+        </div>
+    )
+}
 
-export default ItemDetail;
+export default ItemDetail

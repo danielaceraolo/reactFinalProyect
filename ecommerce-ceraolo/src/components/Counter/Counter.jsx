@@ -18,7 +18,7 @@ const Counter = ({ initial = 1, stock = 100, onAdd }) => {
         }
     };
 
-    const addquantity = () => {
+    const addQuantity = () => {
         onAdd(quantity);
         setBool(false);
     };
@@ -35,7 +35,7 @@ const Counter = ({ initial = 1, stock = 100, onAdd }) => {
                         +
                     </Button>
                     <br />
-                    <Button className="btn btn-dark btn-outline-light border-dark m-1" onClick={addquantity}>
+                    <Button className="btn btn-dark btn-outline-light border-dark m-1" onClick={addQuantity}>
                         Agregar al carrito
                     </Button>
                 </div>
