@@ -32,7 +32,7 @@ const ItemDetailContainer = () => {
 
 
     return loading ? (
-        <div className="d-flex justify-content-center ">
+        <div className="d-flex justify-content-center">
             <Spinner />
         </div>
     ) : (
