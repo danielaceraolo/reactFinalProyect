@@ -1,9 +1,10 @@
-import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
-import './Menu.css'
+import Navbar from "react-bootstrap/Navbar";
+import Container from "react-bootstrap/Container";
 import CartWidget from './../CartWidget/CartWidget';
+
+import './Menu.css'
 
 function Menu() {
     return (
@@ -13,9 +14,9 @@ function Menu() {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-                        <Link to="/deportivas">Deportivas</Link>
-                        <Link to="/moda">Moda</Link>
-                        <Link to="/accesorios">Accesorios</Link>
+                        <Link className="m-4" to="category/deportivas">Deportivas</Link>
+                        <Link className="m-4" to="category/moda">Moda</Link>
+                        <Link className="m-4" to="category/accesorios">Accesorios</Link>
                     </Nav>
                     <Nav>
                         <Link to={"/cart"}>

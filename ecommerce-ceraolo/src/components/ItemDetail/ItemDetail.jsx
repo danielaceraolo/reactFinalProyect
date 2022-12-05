@@ -8,9 +8,9 @@ const ItemDetail = ({ product }) => {
 
     const { cartList, addOnCart } = useCartContext()
 
-    const onAdd = (cantidad) => {
-        console.log(cantidad);
-        addOnCart({ ...product, cantidad })
+    const onAdd = (quantity) => {
+        console.log(quantity);
+        addOnCart({ ...product, quantity })
     }
 
     console.log(cartList);

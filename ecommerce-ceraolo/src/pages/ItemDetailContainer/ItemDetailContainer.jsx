@@ -7,19 +7,28 @@ import Spinner from 'react-bootstrap/Spinner';
 
 
 const ItemDetailContainer = () => {
-
-    const [product, setProduct] = useState({})
-    const [loading, setLoading] = useState(true)
-    const { productId } = useParams()
+    const { productId } = useParams();
+    const [item, setItem] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const dbFirestore = getFirestore()
-        const queryCollection = doc(dbFirestore, 'Items', productId)
-        getDoc(queryCollection)
-            .then((doc) => setProduct({ id: doc.id, ...doc.data() }))
-            .catch(err => console.log(err))
-            .finally(() => setLoading(false))
-    }, [productId])
+        const getProduct = async () => {
+            const dbFirestore = getFirestore();
+            const queryRef = doc(dbFirestore, "items", productId);
+            const response = await getDoc(queryRef);
+
+            const newItem = {
+                id: response.id,
+                ...response.data(),
+            };
+            setTimeout(() => {
+                setItem(newItem);
+                setLoading(false);
+            }, 2000);
+        };
+
+        getProduct();
+    }, [productId]);
 
 
     return loading ? (
@@ -28,7 +37,7 @@ const ItemDetailContainer = () => {
         </div>
     ) : (
         <div className="m-5">
-            <ItemDetail product={product}/>
+            <ItemDetail product={product} />
         </div>
     );
 }
