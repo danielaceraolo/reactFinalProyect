@@ -1,5 +1,6 @@
 # Proyecto Final 34800 - Ecommerce SNEAKERS
 
+Ecommerce sobre una tienda de calzados.
 ------------
 
 |  DEPENDENCIES  | DESIGN  |
