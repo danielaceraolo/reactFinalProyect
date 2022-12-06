@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import { Route, Routes, Navigate, HashRouter } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import './App.css'
@@ -18,21 +18,21 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <CartContextProvider>
-        <Menu/>
-        <NameBrand/>
+        <Menu />
+        <NameBrand />
         <Routes>
           <Route path='/' element={<ItemListContainer />} />
-          <Route path='/category/:categoryId' element={<ItemListContainer/>} />
-          <Route path='/detail/:productId' element={<ItemDetailContainer/>
+          <Route path='/category/:categoryId' element={<ItemListContainer />} />
+          <Route path='/detail/:productId' element={<ItemDetailContainer />
           } />
           <Route path='/cart' element={<Cart />} />
           <Route path='*' element={<Navigate to='/' />} />
         </Routes>
       </CartContextProvider>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
-export default App;
+      export default App;
