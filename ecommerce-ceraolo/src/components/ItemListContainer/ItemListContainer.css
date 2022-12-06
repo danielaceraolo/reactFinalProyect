@@ -8,10 +8,20 @@
 }
 
 .cardStyle, .products{
-    font-family: 'Source Sans Pro', sans-serif;
-    font-weight: bolder;
+    font-family: 'Lalezar', cursive;
     font-size: 30px;
     text-decoration: none;
     margin: 5px;
     padding: 5px;
+}
+
+.selectbtn:hover{
+    color: rgb(179, 55, 50);
+    transition: .5s;
+}
+
+.selectbtn{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: bolder;
+    letter-spacing: .1rem;
 }

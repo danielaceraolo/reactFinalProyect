@@ -1,5 +1,4 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { collection, getDocs, getFirestore, query, where } from "firebase/firestore";
@@ -64,7 +63,7 @@ const ItemListContainer = (obj) => {
                                     {" "}
                                     <h5 className="card-title text-center">{obj.name}</h5>
                                     <p>$ {obj.price}</p>
-                                    <button className="btn btn-dark">Ver Detalle</button>
+                                    <button className="selectbtn btn btn-dark">Seleccionar</button>
                                 </div>
                             </div>
                         </Link>

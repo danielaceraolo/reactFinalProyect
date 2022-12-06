@@ -20,5 +20,14 @@
 
 .categoryt:hover{
     color: rgb(179, 55, 50);
-    transition: .8s;
+    transition: .5s;
+}
+
+.calculation{
+    color: white;
+    margin: 5px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1.2em;
+    font-weight: bolder;
+
 }

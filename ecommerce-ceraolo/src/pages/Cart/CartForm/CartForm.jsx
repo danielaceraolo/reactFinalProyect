@@ -2,8 +2,8 @@ import { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { ToastContainer, toast } from "react-toastify";
 import { addDoc, collection, getFirestore } from "firebase/firestore";
-
 import { useCartContext } from "../../../context/CartContext";
+
 import "../Cart.css"
 
 const CartForm = () => {

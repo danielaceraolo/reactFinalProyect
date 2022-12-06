@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "react-bootstrap";
-
 import InterChange from './../InterChange/InterChange';
+
 
 const Counter = ({ initial = 1, stock = 100, onAdd }) => {
     const [quantity, setQuantity] = useState(initial);

@@ -1,9 +1,6 @@
 import React from "react";
-import "./App.css";
 import { Route, Routes, Navigate, HashRouter } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-
-import './App.css'
 
 import Menu from "./components/Menu/Menu";
 import NameBrand from './components/NameBrand/NameBrand';
@@ -12,9 +9,9 @@ import ItemListContainer from "./components/ItemListContainer/ItemListContainer"
 import ItemDetailContainer from './pages/ItemDetailContainer/ItemDetailContainer';
 import Cart from "./pages/Cart/Cart";
 
-
-
 import "bootstrap/dist/css/bootstrap.min.css";
+
+import './App.css'
 
 function App() {
   return (

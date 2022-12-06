@@ -1,8 +1,9 @@
 import { Alert } from "react-bootstrap";
 import { useCartContext } from "../../../context/CartContext"
-import "../Order/Order.css"
 import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap' 
+
+import "../Order/Order.css"
 
 const Order = () => {
     const { orderId } = useCartContext();
@@ -21,8 +22,8 @@ const Order = () => {
                 </Button>
             </Link>
         </Alert>
-        </div>
-        </div>
+                </div>
+            </div>
         </div>
     );
 };

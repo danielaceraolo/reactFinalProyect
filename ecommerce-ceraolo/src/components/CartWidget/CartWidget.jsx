@@ -1,8 +1,10 @@
 import { FaShoppingCart } from "react-icons/fa";
 
+import "./CartWidget.css"
+
 function CartWidget() {
     return (
-        <FaShoppingCart size={30} />
+        <FaShoppingCart className="cart" size={30} />
     );
 }
 

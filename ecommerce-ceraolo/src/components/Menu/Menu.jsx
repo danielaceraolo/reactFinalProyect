@@ -3,10 +3,14 @@ import { Link } from "react-router-dom";
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import CartWidget from './../CartWidget/CartWidget';
+import { useCartContext } from './../../context/CartContext';
 
 import './Menu.css'
 
 function Menu() {
+
+    const {calcTotal} = useCartContext()
+
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
@@ -22,6 +26,7 @@ function Menu() {
                         <Link to={"/cart"}>
                             <CartWidget />
                         </Link>
+                        <p className="calculation">{calcTotal()}</p>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

@@ -1,34 +1,29 @@
 import { useCartContext } from './../../context/CartContext';
 import Counter from './../Counter/Counter';
-import InterChange from './../InterChange/InterChange';
 
-
+import "./ItemDetail.css"
 
 const ItemDetail = ({ product }) => {
 
-    const { cartList, addToCart } = useCartContext()
+    const { addToCart } = useCartContext()
 
     const onAdd = (quantity) => {
-        console.log(quantity);
         addToCart({ ...product, quantity })
     }
 
-    console.log(cartList);
 
     return (
 
         <div className="container">
             <div className="row">
-                <div className="col justify-content-center align-items-center text-center p-1 m-1">
+                <div className="products col justify-content-center align-items-center text-center">
                     <img src={product.img} className='w-50' />
-                    <p>Categoria: {product.category}</p>
-                    <p>Precio: {product.price}</p>
-                    <p>Stock: {product.stock}</p>
+                    <p>{product.name}.</p>
+                    <p>$ {product.price}</p>
                 </div>
-                <div className="col text-center p-1 m-1">
+                <div className="products col text-center p-1 m-1">
                     <Counter stock={5} initial={1} onAdd={onAdd} />
                 </div>
-                <InterChange />
             </div>
         </div>
     )
