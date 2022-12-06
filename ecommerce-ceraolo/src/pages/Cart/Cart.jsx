@@ -1,22 +1,44 @@
+import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
+
 import { useCartContext } from "../../context/CartContext";
+import Order from "../Cart/Order/Order"
+import CartList from "../Cart/CartList/CartList"
+import CartForm from "../Cart/CartForm/CartForm"
+
+import "react-toastify/dist/ReactToastify.css";
+import "./Cart.css"
 
 const Cart = () => {
-    const { cartList, emptyCart } = useCartContext();
+    const { cartList, order } = useCartContext();
 
     return (
-        <div>
-            <h1>Carrito</h1>
-            <ul>
-                {cartList.map((product) => (
-                    <li key={product.id}>
-                        <img src={product.img} className="w-25" />
-                        Nombre: {product.name} - Precio {product.price} - Cantidad:{" "}
-                        {product.quantity}
-                    </li>
-                ))}
-            </ul>
-            <button onClick={emptyCart}>Vaciar carrito</button>
-        </div>
+        <>
+            {order ? (
+                <div className="text-center">
+                    <Order />
+                </div>
+            ) : (
+                <>
+                    {cartList.length !== 0 ? (
+                        <div className="text-center">
+                            <h1 className="texth1">Productos seleccionados</h1>
+                            <CartList />
+                            <CartForm />
+                        </div>
+                    ) : (
+                        <div className="text-center">
+                            <h2 className="texth2">No hay productos</h2>
+                            <Link to="/">
+                                <Button className="btn btn-dark btn-outline-light border-dark m-5">
+                                    Volver al Inicio
+                                </Button>
+                            </Link>
+                        </div>
+                    )}
+                </>
+            )}
+        </>
     );
 };
 

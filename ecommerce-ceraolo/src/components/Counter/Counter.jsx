@@ -27,15 +27,15 @@ const Counter = ({ initial = 1, stock = 100, onAdd }) => {
         <div>
             {bool === true ? (
                 <div>
-                    <Button className="btn btn-dark btn-outline-light border-dark m-1" onClick={subtract}>
+                    <Button className="btn btn-dark btn-outline-light border-dark m-1 p-2 justify-content-center align-items-center text-center" onClick={subtract}>
                         -
                     </Button>
                     <label>{quantity}</label>
-                    <Button className="btn btn-dark btn-outline-light border-dark m-1" onClick={add}>
+                    <Button className="btn btn-dark btn-outline-light border-dark m-1 p-2 justify-content-center align-items-center text-center" onClick={add}>
                         +
                     </Button>
                     <br />
-                    <Button className="btn btn-dark btn-outline-light border-dark m-1" onClick={addQuantity}>
+                    <Button className="btn btn-dark btn-outline-light border-dark m-1 p-3 justify-content-center align-items-center text-center" onClick={addQuantity}>
                         Agregar al carrito
                     </Button>
                 </div>

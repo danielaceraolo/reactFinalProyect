@@ -49,22 +49,22 @@ const ItemListContainer = (obj) => {
     ) : (
         <div className="container text-center">
             <h1 className="subtitle col m-5">Nuestros Productos</h1>
-            <div className="products row row-cols-1 row-cols-md-3">
+            <div className="cardStyle products row row-cols-1 row-cols-md-3">
                 {products.map((obj) => (
                     <section key={obj.id}>
                         <Link to={`/detail/${obj.id}`}>
-                            <div className="card justify-content-center text-center text-dark">
+                            <div className="cardStyle card justify-content-center text-center text-dark">
                                 <img
-                                    className="card-img-top justify-content-center"
+                                    className="cardStyle card-img-top justify-content-center"
                                     src={obj.img}
                                     alt="foto-product"
                                 />
 
-                                <div className="card-body justify-content-center">
+                                <div className="cardStyle card-body justify-content-center">
                                     {" "}
                                     <h5 className="card-title text-center">{obj.name}</h5>
                                     <p>$ {obj.price}</p>
-                                    <button className="btn btn-danger">Ver Detalle</button>
+                                    <button className="btn btn-dark">Ver Detalle</button>
                                 </div>
                             </div>
                         </Link>
