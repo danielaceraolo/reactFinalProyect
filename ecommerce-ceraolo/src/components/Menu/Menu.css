@@ -1,0 +1,14 @@
+.category{
+    text-decoration: none;
+    color: white;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.categoryt{
+    text-decoration: none;
+    color: white;
+    font-size: 35px;
+    font-weight: bolder;
+}

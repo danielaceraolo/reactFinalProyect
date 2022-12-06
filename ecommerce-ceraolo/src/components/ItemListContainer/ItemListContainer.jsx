@@ -2,13 +2,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { collection, getDocs, getFirestore, doc } from "firebase/firestore";
+import { collection, getDocs, getFirestore, query, where } from "firebase/firestore";
 import Spinner from "react-bootstrap/Spinner";
 
 import "./ItemListContainer.css";
 
 const ItemListContainer = (obj) => {
-    const { catId } = useParams();
+    const { categoryId } = useParams();
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -16,11 +16,11 @@ const ItemListContainer = (obj) => {
         const dbFirestore = getFirestore()
         const getData = async () => {
 
-            const queryRef = !catId
+            const queryRef = !categoryId
                 ? collection(dbFirestore, "items")
                 : query(
                     collection(dbFirestore, "items"),
-                    where("category", "==", catId)
+                    where("category", "==", categoryId)
                 );
             const response = await getDocs(queryRef);
             const prod = response.docs.map((doc) => {
@@ -35,12 +35,12 @@ const ItemListContainer = (obj) => {
 
                 setProducts(prod);
                 setLoading(false)
-            }, 2000)
+            }, 1000)
         };
 
         getData();
 
-    }, [catId])
+    }, [categoryId])
 
     return loading ? (
         <h3 className="loading text-center mt-5 p-5">

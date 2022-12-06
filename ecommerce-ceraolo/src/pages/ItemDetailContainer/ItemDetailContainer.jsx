@@ -7,28 +7,20 @@ import Spinner from 'react-bootstrap/Spinner';
 
 
 const ItemDetailContainer = () => {
-    const { productId } = useParams();
-    const [item, setItem] = useState([]);
-    const [loading, setLoading] = useState(true);
+
+    const [product, setProduct] = useState({})
+    const [loading, setLoading] = useState(true)
+    const { productId } = useParams()
 
     useEffect(() => {
-        const getProduct = async () => {
-            const dbFirestore = getFirestore();
-            const queryRef = doc(dbFirestore, "items", productId);
-            const response = await getDoc(queryRef);
 
-            const newItem = {
-                id: response.id,
-                ...response.data(),
-            };
-            setTimeout(() => {
-                setItem(newItem);
-                setLoading(false);
-            }, 2000);
-        };
-
-        getProduct();
-    }, [productId]);
+        const db = getFirestore()
+        const queryCollection = doc(db, "items", productId)
+        getDoc(queryCollection)
+            .then((doc) => setProduct({ id: doc.id, ...doc.data() }))
+            .catch(error => console.log(error))
+            .finally(() => setLoading(false))
+    }, [productId])
 
 
     return loading ? (

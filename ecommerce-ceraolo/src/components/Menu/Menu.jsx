@@ -10,13 +10,13 @@ function Menu() {
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
-                <Navbar.Brand href="#home">SNEAKERS</Navbar.Brand>
+                <Link className="m-4 categoryt" to="/">SNEAKERS</Link>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-                        <Link className="m-4" to="category/deportivas">Deportivas</Link>
-                        <Link className="m-4" to="category/moda">Moda</Link>
-                        <Link className="m-4" to="category/accesorios">Accesorios</Link>
+                        <Link className="m-4 category" to="category/deportivas">Deportivas</Link>
+                        <Link className="m-4 category" to="category/moda">Moda</Link>
+                        <Link className="m-4 category" to="category/accesorios">Accesorios</Link>
                     </Nav>
                     <Nav>
                         <Link to={"/cart"}>
