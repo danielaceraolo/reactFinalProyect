@@ -13,7 +13,7 @@
 
 ## Visita la página en NETLIFY ⬇️
 
-> ⏺  [SNEAKERS E-COMMERCE](https://ecommerce-c-sneakersc.netlify.app/ "SNEAKERS E-COMMERCE" {:target="_blank"}) 
+> ⏺  [SNEAKERS E-COMMERCE](https://ecommerce-c-sneakersc.netlify.app/ "SNEAKERS E-COMMERCE") {:target="_blank"} 
 
 
 ------------
