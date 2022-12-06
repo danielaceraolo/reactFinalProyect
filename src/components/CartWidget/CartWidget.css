@@ -1,8 +1,0 @@
-.cart{
-    color: white;
-}
-
-.cart:hover{
-    color: rgb(179, 55, 50);
-    transition: .5s;
-}
