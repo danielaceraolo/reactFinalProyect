@@ -6,9 +6,19 @@
     font-weight: bold;
 }
 
+.category:hover{
+    color: rgb(179, 55, 50);
+    transition: .8s;
+}
+
 .categoryt{
     text-decoration: none;
     color: white;
     font-size: 35px;
     font-weight: bolder;
+}
+
+.categoryt:hover{
+    color: rgb(179, 55, 50);
+    transition: .8s;
 }

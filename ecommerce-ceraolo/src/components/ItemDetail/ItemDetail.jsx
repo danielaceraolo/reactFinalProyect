@@ -6,16 +6,17 @@ import InterChange from './../InterChange/InterChange';
 
 const ItemDetail = ({ product }) => {
 
-    const { cartList, addOnCart } = useCartContext()
+    const { cartList, addToCart } = useCartContext()
 
     const onAdd = (quantity) => {
         console.log(quantity);
-        addOnCart({ ...product, quantity })
+        addToCart({ ...product, quantity })
     }
 
     console.log(cartList);
 
     return (
+
         <div className="container">
             <div className="row">
                 <div className="col justify-content-center align-items-center text-center p-1 m-1">

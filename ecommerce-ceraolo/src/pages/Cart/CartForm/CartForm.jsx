@@ -50,7 +50,7 @@ const CartForm = () => {
     const notify = () =>
         toast.warn("Email incorrecto", {
             position: "top-right",
-            autoClose: 2500,
+            autoClose: 2000,
             theme: "dark",
         });
 

@@ -1,15 +1,29 @@
 import { Alert } from "react-bootstrap";
 import { useCartContext } from "../../../context/CartContext"
-
+import "../Order/Order.css"
+import { Link } from 'react-router-dom';
+import { Button } from 'react-bootstrap' 
 
 const Order = () => {
-    const {orderId} = useCartContext();
+    const { orderId } = useCartContext();
     return (
-        <Alert variant="success">
+        <div className="container justify-content-center align-items-center">
+            <div className="row">
+                <div className="col">
+        <Alert className="alert" variant="success">
             N° de Orden {orderId}.
             <br />
             Gracias por tu compra!
+            
+            <Link to="/">
+                <Button className="btn btn-success m-5 p-3 justify-content-center align-items-center">
+                    Volver al Inicio
+                </Button>
+            </Link>
         </Alert>
+        </div>
+        </div>
+        </div>
     );
 };
 
